@@ -10,12 +10,11 @@ def prepare(src_dir, target_dir):
     shortName = row[0][row[0].rindex('/') + 1:]
     if lastName != shortName:
       names.append(shortName)
-      if len(lines) > 0: # write last
-        os.symlink(src_dir + '/' + row[0], target_dir + '/images/' + shortName)
-        if lastName:
-          tmpName = target_dir + '/labels/' + lastName.replace('.png', '.txt')
-          with open(tmpName, "w") as f:
-            f.write('\n'.join(lines))
+      os.symlink(src_dir + '/' + row[0], target_dir + '/images/' + shortName)
+      if lastName:
+        tmpName = target_dir + '/labels/' + lastName.replace('.png', '.txt')
+        with open(tmpName, "w") as f:
+          f.write('\n'.join(lines))
       lines = []
       lastName = shortName
     line = "{} {} {} {} {}".format(row[5],(row[3] + row[1])//2, (row[4] + row[2])//2, row[3]- row[1], row[4] - row[2]);

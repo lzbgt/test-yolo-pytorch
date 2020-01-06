@@ -37,7 +37,7 @@ def prepare(src_dir, target_dir):
 
 
 if __name__ == "__main__":
-  os.system("mkdir -p {}; mkdir -p {}/{{images,labels}}".format(sys.argv[1], sys.argv[2]))
+  os.system("mkdir -p {}; mkdir -p {}/images; mkdir -p {}/labels".format(sys.argv[1], sys.argv[2],sys.argv[2]))
   prepare(sys.argv[1], sys.argv[2])
 
 

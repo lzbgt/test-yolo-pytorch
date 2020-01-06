@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
     data_config = parse_data_config(opt.data_config)
     valid_path = data_config["valid"]
-    print("valid path {valid_path}")
+    print(f"valid path {valid_path}")
     class_names = load_classes(data_config["names"])
 
     # Initiate model
